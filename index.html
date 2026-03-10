@@ -63,28 +63,4 @@
             document.getElementById('money').innerText = "₹" + (levels[step] || "MAX");
             
             // इंटेलिजेंट प्रिडिक्शन लॉजिक
-            let next = (history.length % 2 === 0) ? "BIG" : "SMALL";
-            document.getElementById('advice').innerText = next;
-        }
 
-        // बॉक्स को स्मूथली खिसकाने का लॉजिक
-        let box = document.getElementById('sule_box');
-        let active = false, xOffset = 0, yOffset = 0, initialX, initialY;
-
-        box.addEventListener("touchstart", (e) => {
-            initialX = e.touches[0].clientX - xOffset;
-            initialY = e.touches[0].clientY - yOffset;
-            active = true;
-        });
-        document.addEventListener("touchend", () => active = false);
-        document.addEventListener("touchmove", (e) => {
-            if (active) {
-                xOffset = e.touches[0].clientX - initialX;
-                yOffset = e.touches[0].clientY - initialY;
-                box.style.transform = "translate3d(" + xOffset + "px, " + yOffset + "px, 0)";
-            }
-        });
-        updateEngine();
-    </script>
-</body>
-</html>
